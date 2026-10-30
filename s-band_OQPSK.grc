@@ -57,6 +57,23 @@ blocks:
     coordinate: [216, 16.0]
     rotation: 0
     state: enabled
+- name: blocks_char_to_float_0
+  id: blocks_char_to_float
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    scale: '1'
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1048, 364.0]
+    rotation: 0
+    state: enabled
 - name: blocks_complex_to_float_0
   id: blocks_complex_to_float
   parameters:
@@ -150,6 +167,22 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [200, 120.0]
+    rotation: 0
+    state: enabled
+- name: digital_constellation_decoder_cb_0
+  id: digital_constellation_decoder_cb
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    constellation: digital.constellation_qpsk().base()
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [888, 364.0]
     rotation: 0
     state: enabled
 - name: digital_costas_loop_cc_0
@@ -654,7 +687,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [864, 356.0]
+    coordinate: [856, 276.0]
     rotation: 0
     state: enabled
 - name: qtgui_freq_sink_x_0
@@ -819,6 +852,93 @@ blocks:
     coordinate: [616, 116.0]
     rotation: 0
     state: disabled
+- name: qtgui_histogram_sink_x_0
+  id: qtgui_histogram_sink_x
+  parameters:
+    accum: 'False'
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'False'
+    axislabels: 'True'
+    bins: '6'
+    color1: '"blue"'
+    color10: '"dark blue"'
+    color2: '"red"'
+    color3: '"green"'
+    color4: '"black"'
+    color5: '"cyan"'
+    color6: '"magenta"'
+    color7: '"yellow"'
+    color8: '"dark red"'
+    color9: '"dark green"'
+    comment: ''
+    grid: 'False'
+    gui_hint: ''
+    label1: ''
+    label10: ''
+    label2: ''
+    label3: ''
+    label4: ''
+    label5: ''
+    label6: ''
+    label7: ''
+    label8: ''
+    label9: ''
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '""'
+    nconnections: '1'
+    size: '1024'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    type: float
+    update_time: '0.10'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    xmax: '5.5'
+    xmin: '-0.5'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1080, 436.0]
+    rotation: 0
+    state: enabled
 - name: qtgui_time_sink_x_0
   id: qtgui_time_sink_x
   parameters:
@@ -1038,6 +1158,7 @@ blocks:
     state: enabled
 
 connections:
+- [blocks_char_to_float_0, '0', qtgui_histogram_sink_x_0, '0']
 - [blocks_complex_to_float_0, '0', blocks_float_to_complex_0, '0']
 - [blocks_complex_to_float_0, '1', blocks_delay_0, '0']
 - [blocks_delay_0, '0', blocks_float_to_complex_0, '1']
@@ -1048,8 +1169,10 @@ connections:
 - [blocks_throttle2_0, '0', qtgui_freq_sink_x_0, '0']
 - [blocks_throttle2_0, '0', qtgui_time_sink_x_0, '0']
 - [blocks_throttle2_0, '0', root_raised_cosine_filter_0, '0']
+- [digital_constellation_decoder_cb_0, '0', blocks_char_to_float_0, '0']
 - [digital_costas_loop_cc_0, '0', blocks_complex_to_float_0, '0']
 - [digital_costas_loop_cc_0, '0', qtgui_const_sink_x_0_0_0, '0']
+- [digital_symbol_sync_xx_0, '0', digital_constellation_decoder_cb_0, '0']
 - [digital_symbol_sync_xx_0, '0', qtgui_const_sink_x_0_0_0_0_0, '0']
 - [root_raised_cosine_filter_0, '0', digital_costas_loop_cc_0, '0']
 - [root_raised_cosine_filter_0, '0', qtgui_const_sink_x_0_0, '0']
