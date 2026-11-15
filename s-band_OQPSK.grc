@@ -53,7 +53,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [536, 12.0]
+    coordinate: [288, 12.0]
     rotation: 0
     state: enabled
 - name: samp_per_symb
@@ -136,7 +136,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    delay: '4'
+    delay: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
@@ -156,7 +156,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    delay: '0'
+    delay: '4'
     maxoutbuf: '0'
     minoutbuf: '0'
     num_ports: '1'
@@ -206,24 +206,6 @@ blocks:
     coordinate: [272, 580.0]
     rotation: 0
     state: enabled
-- name: blocks_file_sink_1
-  id: blocks_file_sink
-  parameters:
-    affinity: ''
-    alias: ''
-    append: 'False'
-    comment: ''
-    file: /Users/nmseigel/GNURadio/sband-oqpsk-gnuradio/raw_bits.bin
-    type: complex
-    unbuffered: 'True'
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [360, 52.0]
-    rotation: 0
-    state: disabled
 - name: blocks_file_source_0
   id: blocks_file_source
   parameters:
@@ -243,7 +225,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [48, 104.0]
+    coordinate: [16, 168.0]
     rotation: 0
     state: enabled
 - name: blocks_float_to_complex_0
@@ -277,9 +259,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [824, 524.0]
+    coordinate: [880, 612.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: blocks_head_0_0
   id: blocks_head
   parameters:
@@ -297,32 +279,14 @@ blocks:
     bus_structure: null
     coordinate: [128, 612.0]
     rotation: 0
-    state: disabled
-- name: blocks_head_1
-  id: blocks_head
-  parameters:
-    affinity: ''
-    alias: ''
-    comment: ''
-    maxoutbuf: '0'
-    minoutbuf: '0'
-    num_items: '1000000'
-    type: complex
-    vlen: '1'
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [216, 76.0]
-    rotation: 0
-    state: disabled
+    state: enabled
 - name: blocks_multiply_const_vxx_0
   id: blocks_multiply_const_vxx
   parameters:
     affinity: ''
     alias: ''
     comment: ''
-    const: -1j
+    const: '1'
     maxoutbuf: '0'
     minoutbuf: '0'
     type: complex
@@ -334,24 +298,42 @@ blocks:
     coordinate: [864, 364.0]
     rotation: 0
     state: enabled
-- name: blocks_skiphead_0
-  id: blocks_skiphead
+- name: blocks_multiply_const_vxx_0_0
+  id: blocks_multiply_const_vxx
   parameters:
     affinity: ''
     alias: ''
     comment: ''
+    const: '1'
     maxoutbuf: '0'
     minoutbuf: '0'
-    num_items: '400000'
     type: complex
     vlen: '1'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [112, 244.0]
+    coordinate: [504, 404.0]
     rotation: 0
-    state: disabled
+    state: enabled
+- name: blocks_multiply_const_vxx_0_1
+  id: blocks_multiply_const_vxx
+  parameters:
+    affinity: ''
+    alias: ''
+    comment: ''
+    const: 1j
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    type: complex
+    vlen: '1'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [832, 212.0]
+    rotation: 0
+    state: enabled
 - name: blocks_throttle2_0
   id: blocks_throttle2
   parameters:
@@ -370,7 +352,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [272, 120.0]
+    coordinate: [176, 184.0]
     rotation: 0
     state: enabled
 - name: blocks_unpack_k_bits_bb_0
@@ -420,7 +402,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [816, 108.0]
+    coordinate: [616, 156.0]
     rotation: 0
     state: enabled
 - name: digital_diff_decoder_bb_0
@@ -631,7 +613,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [264, 244.0]
+    coordinate: [272, 236.0]
     rotation: 0
     state: enabled
 - name: qtgui_const_sink_x_0_0
@@ -723,7 +705,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [616, 192.0]
+    coordinate: [488, 276.0]
     rotation: 0
     state: enabled
 - name: qtgui_const_sink_x_0_0_0
@@ -815,7 +797,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1000, 132.0]
+    coordinate: [808, 148.0]
     rotation: 0
     state: enabled
 - name: qtgui_const_sink_x_0_0_0_0
@@ -907,7 +889,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [496, 316.0]
+    coordinate: [472, 348.0]
     rotation: 0
     state: enabled
 - name: qtgui_const_sink_x_0_0_0_0_0
@@ -1172,7 +1154,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [416, 132.0]
+    coordinate: [408, 164.0]
     rotation: 0
     state: enabled
 
@@ -1183,30 +1165,26 @@ connections:
 - [blocks_complex_to_float_0, '1', blocks_delay_0, '0']
 - [blocks_delay_0, '0', blocks_float_to_complex_0, '1']
 - [blocks_delay_0_0, '0', blocks_float_to_complex_0, '0']
-- [blocks_file_source_0, '0', blocks_head_1, '0']
-- [blocks_file_source_0, '0', blocks_skiphead_0, '0']
 - [blocks_file_source_0, '0', blocks_throttle2_0, '0']
-- [blocks_float_to_complex_0, '0', digital_symbol_sync_xx_0, '0']
+- [blocks_float_to_complex_0, '0', blocks_multiply_const_vxx_0_0, '0']
 - [blocks_float_to_complex_0, '0', qtgui_const_sink_x_0_0_0_0, '0']
 - [blocks_head_0, '0', blocks_file_sink_0, '0']
 - [blocks_head_0_0, '0', blocks_file_sink_0_0, '0']
-- [blocks_head_1, '0', blocks_file_sink_1, '0']
 - [blocks_multiply_const_vxx_0, '0', digital_constellation_decoder_cb_0, '0']
-- [blocks_skiphead_0, '0', blocks_throttle2_0, '0']
+- [blocks_multiply_const_vxx_0_0, '0', digital_symbol_sync_xx_0, '0']
+- [blocks_multiply_const_vxx_0_1, '0', blocks_complex_to_float_0, '0']
 - [blocks_throttle2_0, '0', qtgui_const_sink_x_0, '0']
 - [blocks_throttle2_0, '0', root_raised_cosine_filter_0, '0']
-- [blocks_unpack_k_bits_bb_0, '0', blocks_file_sink_0_0, '0']
 - [blocks_unpack_k_bits_bb_0, '0', blocks_head_0_0, '0']
 - [blocks_unpack_k_bits_bb_0, '0', digital_map_bb_0, '0']
 - [digital_constellation_decoder_cb_0, '0', blocks_char_to_float_0, '0']
 - [digital_constellation_decoder_cb_0, '0', blocks_unpack_k_bits_bb_0, '0']
-- [digital_costas_loop_cc_0, '0', blocks_complex_to_float_0, '0']
+- [digital_costas_loop_cc_0, '0', blocks_multiply_const_vxx_0_1, '0']
 - [digital_costas_loop_cc_0, '0', qtgui_const_sink_x_0_0_0, '0']
 - [digital_diff_decoder_bb_0, '0', epy_block_0, '0']
 - [digital_map_bb_0, '0', blocks_char_to_float_1, '0']
 - [digital_symbol_sync_xx_0, '0', blocks_multiply_const_vxx_0, '0']
 - [digital_symbol_sync_xx_0, '0', qtgui_const_sink_x_0_0_0_0_0, '0']
-- [epy_block_0, '0', blocks_file_sink_0, '0']
 - [epy_block_0, '0', blocks_head_0, '0']
 - [epy_block_0, '0', qtgui_number_sink_0, '0']
 - [fec_extended_decoder_0, '0', digital_diff_decoder_bb_0, '0']
